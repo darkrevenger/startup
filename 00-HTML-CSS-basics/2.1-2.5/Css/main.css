@@ -2,6 +2,7 @@
 
   font-size: 14px !important;
   font-family: sans-serif;
+  box-sizing: border-box;
 
 }
 
@@ -9,6 +10,7 @@ html{
 
   font-size: 14px;
   font-family: sans-serif;
+  border: solid black 5px;
 
 }
 
@@ -17,6 +19,7 @@ header {
     text-align: center;
     background-color: yellow;
     height: 120px;
+    border: solid black 5px;
 }
 
 .header{
@@ -28,10 +31,12 @@ header {
 
 nav {
 
- float: left;
- width: 20%;
- height: 300px;
+ display: inline-block;
+ width: 15%;
+ height: 310px;
  background-color: blue;
+ border: solid black 5px;
+
 
 }
 
@@ -42,10 +47,12 @@ nav {
 }
 
 section {
+
+ display: inline-block;
  height: auto;
- float: left;
  width: 60%;
  background-color: red;
+ border: solid black 5px;
 
 }
 
@@ -56,10 +63,11 @@ section {
 
 aside {
 
- float: left;
+ display: inline-block;
  width: 20%;
- height: 300px;
+ height: 310px;
  background-color: teal;
+ border: solid black 5px;
 
 }
 
@@ -76,6 +84,7 @@ footer {
  height: 80px;
  background-color: magenta;
  text-align: center;
+ border: solid black 5px;
 
 }
 
@@ -89,6 +98,7 @@ section > footer {
 
  height: 50px;
  background-color: pink;
+ border: solid black 5px;
 
 }
 
@@ -96,6 +106,7 @@ section > header {
 
  height: 50px;
  background-color: crimson;
+ border: solid black 5px;
 
 }
 
@@ -103,5 +114,6 @@ section > article {
 
  height: 200px;
  background-color: orange;
+ border: solid black 5px;
 
 }
