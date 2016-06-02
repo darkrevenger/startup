@@ -32,10 +32,11 @@ header {
 nav {
 
  display: inline-block;
- width: 15%;
+ width: 20%;
  height: 310px;
  background-color: blue;
  border: solid black 5px;
+ vertical-align: top;
 
 
 }
@@ -68,6 +69,7 @@ aside {
  height: 310px;
  background-color: teal;
  border: solid black 5px;
+ vertical-align: top;
 
 }
 
