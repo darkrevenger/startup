@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login form</title>
+    <meta charset="UTF-8"/>
+    <!-- Minimum-scale=1 setea que lo maximo que se puede alejar sea la vista comun del cel -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1"/>
+      </head>
+  <body>
+    <form action="#" method="post">
+      <label>First Name</label>
+      <input type="text" name="name" required/>
+      <label>Last Name</label>
+      <input type="text" name="surname" required/>
+      <label>E-mail</label>
+      <input type="email" name="email" required/>
+      <label>Birthday</label>
+      <input type="date" name="birthday" required/>
+      <label>Choose your favorite sport please</label>
+      <select>
+        <option value="" disabled selected>Select a sport</option>
+        <option value="basquet">Basquet</option>
+        <option value="football">Football</option>
+        <option value="tenis">Tenis</option>
+      </select>
+      <label>Biografia</label>
+      <textarea placeholder="Porfavor escribe una pequeña reseña aqui"></textarea>
+      <input type="submit" value="Send"/>
+      <input type="reset" value="Reset"/>
+    </form>
+  </body>
+</html>
