@@ -1,7 +1,5 @@
 *{
-
   box-sizing: border-box;
-
 }
 
 .section {
@@ -46,23 +44,66 @@
     width: 15.33%;
 }
 
+@media only screen and (max-width: 375px) {
+  .col {  margin: 1% 0 1% 0%; }
+  .span_1_of_6, .span_2_of_6, .span_3_of_6, .span_4_of_6, .span_5_of_6, .span_6_of_6 { width: 100%; }
+}
+
 @media only screen and (max-width: 480px) {
   .col {  margin: 1% 0 1% 0%; }
   .span_1_of_6, .span_2_of_6, .span_3_of_6, .span_4_of_6, .span_5_of_6, .span_6_of_6 { width: 100%; }
 }
 
-div.col:nth-child(1) {
+@media only screen and (max-width: 768px) {
+  .col {  margin: 1% 0 1% 0%; }
+  .span_1_of_6, .span_2_of_6, .span_3_of_6, .span_4_of_6, .span_5_of_6, .span_6_of_6 { width: 46%; }
+}
+
+div.text > div.col:nth-child(1) {
     padding-left: 25px;
     font-weight: bold;
 }
 
-div.col:nth-child(2) {
+div.text > div.col:nth-child(2) {
     padding-right: 200px;
     padding-left: 50px;
     line-height: 22px;
 }
 
 img{
-  display:block;
+  padding-bottom: 20px;
   max-width: 100%;
 }
+
+.mouseover{
+  background-color: rgba(255,255,255,0.7);
+  position: absolute;
+  opacity: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 15px 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.labeled-image{
+
+  position: relative;
+
+}
+
+.title{
+
+  color: red;
+  text-decoration: none;
+
+}
+
+div.labeled-image:hover > .mouseover{
+  opacity: 1;
+}
+
