@@ -6,6 +6,6 @@ section{
 
 .oculto {
   
-  visibility: hidden;
+  display: none;
 
 }

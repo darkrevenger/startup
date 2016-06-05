@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,14 +13,20 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/js.js"></script>
+
+    <title>Bootcamp activity 1 test</title>
   </head>
-  <body>
+  <body onload="mostrarTexto()">
     <header class="header">Header</header>
     <nav class="navigation">nav</nav>
-    <section id="noesta" class="oculto">Hello world</section>
-    <button type="button" onclick="alert('OUCH, NO CLICKES TAN FUERTE!')">Click Me!</button>
+    <section class="oculto">
+        <p>Hello world</p>
+        <p id="chistesDel2008"></p>
+
+    </section>
+    <button type="button" onclick="chistesDel2008()">Click Me!</button>
     <footer class="footer">footer</footer>
   </body>
 </html>
