@@ -1,7 +1,9 @@
 function chistesDel2008(){
-  $.get("https://api.github.com/search/repositories?q=JavaScript", function(newText){
+  var input = document.getElementById("query").value;
+  $.get("https://api.github.com/search/repositories?q=" + input, function(newText){
 
     var ul = document.getElementById("lista");
+    ul.innerHTML = "";
 
     newText.items.forEach(function(current, index, arreglo){
 
@@ -12,17 +14,6 @@ function chistesDel2008(){
     });
   });
 }
-
-/*
-
-function function1() {
-  var ul = document.getElementById("list");
-  var li = document.createElement("li");
-  li.appendChild(document.createTextNode("Four"));
-  ul.appendChild(li);
-}
-
-*/
 
 function mostrarTexto()
 {
