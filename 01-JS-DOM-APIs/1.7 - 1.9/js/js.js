@@ -1,11 +1,11 @@
-function chistesDel2008(){
-  $.get("https://api.github.com/search/repositories?q=JavaScript", function(newText){
+function chistesDel2008() {
+  $.get('https://api.github.com/search/repositories?q=JavaScript', function(newText) {
 
-    var ul = document.getElementById("lista");
+    var ul = document.getElementById('lista');
 
-    newText.items.forEach(function(current, index, arreglo){
+    newText.items.forEach(function(current, index, arreglo) {
 
-      var li = document.createElement("li");
+      var li = document.createElement('li');
       li.appendChild(document.createTextNode(current.full_name));
       ul.appendChild(li);
 
@@ -13,48 +13,37 @@ function chistesDel2008(){
   });
 }
 
-/*
-
-function function1() {
-  var ul = document.getElementById("list");
-  var li = document.createElement("li");
-  li.appendChild(document.createTextNode("Four"));
-  ul.appendChild(li);
-}
-
-*/
-
 function mostrarTexto()
 {
-  $(".oculto").fadeIn(3000);
+  $('.oculto').fadeIn(3000);
 }
 
-function doAJAX(config){
-  return new Promise(function(resolve, reject){
+function doAJAX(config) {
+  return new Promise(function(resolve, reject) {
 
-    if (typeof config === "object") {
-      if(config.url == null || config.http == null || config.async == null){
+    if (typeof config === 'object') {
+      if(config.url == null || config.http == null || config.async == null) {
 
-        reject(Error("No se encontro url/http/async (Es necesario ingresar las 3)"));
+        reject(Error('No se encontro url/http/async (Es necesario ingresar las 3)'));
 
-      }else{
+      } else {
 
         var xhttp = new XMLHttpRequest();
         xhttp.open(config.http, config.url, config.async);
-        xhttp.onload = function(){
-          if(xhttp.status === 200  && xhttp.readyState == 4){
+        xhttp.onload = function() {
+          if(xhttp.status === 200  && xhttp.readyState == 4) {
 
             resolve(xhttp.response);
 
-          }else{
+          } else {
             reject(Error(xhttp.statusText));
           }
 
         };
 
         xhttp.onerror = function() {
-          reject(Error("Error de solicitud"));
-          document.getElementsByClassName("oculto")[0].style.color = "Red";
+          reject(Error('Error de solicitud'));
+          document.getElementsByClassName('oculto')[0].style.color = 'Red';
         }
         xhttp.send();
 
@@ -62,7 +51,7 @@ function doAJAX(config){
 
     } else {
 
-      reject(Error("Config no es un objeto"));
+      reject(Error('Config no es un objeto'));
 
 
       }
@@ -71,9 +60,10 @@ function doAJAX(config){
   });
 }
 
-var configDeMartin = new Object();
-configDeMartin.url = "https://api.github.com/search/repositories?q=javascript";
-configDeMartin.http = "GET";
-configDeMartin.async = true;
+var configDeMartin = {
+url: 'https://api.github.com/search/repositories?q=javascript',
+http: 'GET',
+async: true
+};
 
-doAJAX(configDeMartin).then(function(){console.log("todobiem")}, function(){console.log("TODO mal, pero TODO como español no como TO-DO")});
+doAJAX(configDeMartin).then(function(){console.log('todobiem')}, function(){console.log('TODO mal, pero TODO como español no como TO-DO')});

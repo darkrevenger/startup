@@ -15,9 +15,9 @@
 }
 
 .group:before,
-.group:after { content:""; display:table; }
-.group:after { clear:both;}
-.group { zoom:1; /* For IE 6/7 */ }
+.group:after {content:""; display:table;}
+.group:after {clear: both;}
+.group {zoom: 1; /* For IE 6/7 */ }
 
 .span_6_of_6 {
   width: 100%;

@@ -1,13 +1,13 @@
-function chistesDel2008(){
-  var input = document.getElementById("query").value;
-  $.get("https://api.github.com/search/repositories?q=" + input, function(newText){
+function chistesDel2008() {
+  var input = document.getElementById('query').value;
+  $.get('https://api.github.com/search/repositories?q=' + input, function(newText) {
 
-    var ul = document.getElementById("lista");
-    ul.innerHTML = "";
+    var ul = document.getElementById('lista');
+    ul.innerHTML = '';
 
-    newText.items.forEach(function(current, index, arreglo){
+    newText.items.forEach(function(current, index, arreglo) {
 
-      var li = document.createElement("li");
+      var li = document.createElement('li');
       li.appendChild(document.createTextNode(current.full_name));
       ul.appendChild(li);
 
@@ -17,18 +17,18 @@ function chistesDel2008(){
 
 function mostrarTexto()
 {
-  $(".oculto").fadeIn(3000);
+  $('.oculto').fadeIn(3000);
 }
 
-function doAJAX(config){
-  return new Promise(function(resolve, reject){
+function doAJAX(config) {
+  return new Promise(function(resolve, reject) {
 
-    if (typeof config === "object") {
-      if(config.url == null || config.http == null || config.async == null){
+    if (typeof config === 'object') {
+      if(config.url == null || config.http == null || config.async == null) {
 
-        reject(Error("No se encontro url/http/async (Es necesario ingresar las 3)"));
+        reject(Error('No se encontro url/http/async (Es necesario ingresar las 3)'));
 
-      }else{
+      } else {
 
         var xhttp = new XMLHttpRequest();
         xhttp.open(config.http, config.url, config.async);
@@ -37,15 +37,15 @@ function doAJAX(config){
 
             resolve(xhttp.response);
 
-          }else{
+          } else {
             reject(Error(xhttp.statusText));
           }
 
         };
 
         xhttp.onerror = function() {
-          reject(Error("Error de solicitud"));
-          document.getElementsByClassName("oculto")[0].style.color = "Red";
+          reject(Error('Error de solicitud'));
+          document.getElementsByClassName('oculto')[0].style.color = 'Red';
         }
         xhttp.send();
 
@@ -53,7 +53,7 @@ function doAJAX(config){
 
     } else {
 
-      reject(Error("Config no es un objeto"));
+      reject(Error('Config no es un objeto'));
 
 
       }
@@ -62,37 +62,38 @@ function doAJAX(config){
   });
 }
 
-var configDeMartin = new Object();
-configDeMartin.url = "https://api.github.com/search/repositories?q=javascript";
-configDeMartin.http = "GET";
-configDeMartin.async = true;
+var configDeMartin = {
+url: 'https://api.github.com/search/repositories?q=javascript',
+http: 'GET',
+async: true
+};
 
-doAJAX(configDeMartin).then(function(){console.log("todobiem")}, function(){console.log("TODO mal, pero TODO como español no como TO-DO")});
+doAJAX(configDeMartin).then(function(){console.log('todobiem')}, function(){console.log('TODO mal, pero TODO como español no como TO-DO')});
 
 
 var matrix = new Array(3);
 
-  for (i=0; i <3; i++) {
+  for (i = 0; i < 3; i++) {
     matrix[i]=new Array(2);
   }
-  matrix[0][0] = "Buenos Aires";
-  matrix[0][1] = "Capital Federal";
-  matrix[1][0] = "Santiago del Estero";
-  matrix[1][1] = "Santiago del Estero";
-  matrix[2][0] = "Misiones";
-  matrix[2][1] = "Posadas";
+  matrix[0][0] = 'Buenos Aires';
+  matrix[0][1] = 'Capital Federal';
+  matrix[1][0] = 'Santiago del Estero';
+  matrix[1][1] = 'Santiago del Estero';
+  matrix[2][0] = 'Misiones';
+  matrix[2][1] = 'Posadas';
 
 
-function matrixReader(matrix){
+function matrixReader(matrix) {
 
-  var tbody = document.getElementById("table");
+  var tbody = document.getElementById('table');
 
-  for(var i = 0; i < matrix.length; i++){
+  for(var i = 0; i < matrix.length; i++) {
 
-    var tr = document.createElement("tr");
+    var tr = document.createElement('tr');
     for (var j = 0; j < matrix[i].length; j++) {
 
-      var td = document.createElement("td");
+      var td = document.createElement('td');
       td.appendChild(document.createTextNode(matrix[i][j]));
       tr.appendChild(td);
       
