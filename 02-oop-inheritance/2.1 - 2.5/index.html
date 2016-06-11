@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="css/normalize.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <script type="text/javascript" src="js/EventEmitter.js"></script>
+        <script type="text/javascript" src="js/Movie.js"></script>
+        <script type="text/javascript" src="js/Logger.js"></script>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            let lordOfTheRings = new Movie('The Lord of the Rings: The Fellowship of the Ring', 2001, 2.5);
+            let logger = new Logger();
+            lordOfTheRings.on('play', logger.log("Hola soy el log del evento play de la pelicula LOTR: TFOTR"));
+            // ...
+            lordOfTheRings.play(); // output: The 'play' event has been emitted
+        </script>
+        <header class="header">Header</header>
+        <nav class="navigation">nav</nav>
+        <section class="content">
+            <header class="header">header de section</header>
+            <article>article de section</article>
+            <footer class="footer">footer de section </footer>
+        </section>
+        <aside class="sidebar">aside</aside>
+        <footer class="footer">footer</footer>
+
+    </body>
+</html>
