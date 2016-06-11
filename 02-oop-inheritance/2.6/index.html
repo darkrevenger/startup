@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="css/normalize.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <script type="text/javascript" src="js/EventEmitter.js"></script>
+        <script type="text/javascript" src="js/Movie.js"></script>
+        <script type="text/javascript" src="js/Logger.js"></script>
+        <script type="text/javascript" src="js/socialObject.js"></script>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            let lordOfTheRings = new Movie('The Lord of the Rings: The Fellowship of the Ring', 2001, 2.5);
+            let logger = new Logger();
+            lordOfTheRings.on('play', logger.log("Hola soy el log del evento play de la pelicula LOTR: TFOTR"));
+            lordOfTheRings.play();
+        </script>
+        <script>
+            Object.assign(lordOfTheRings, social);
+            lordOfTheRings.share('Martin Fares');
+            lordOfTheRings.like('Martin Fares'); 
+        </script>   
+        <header class="header">Hello and welcome</header>
+        <nav class="navigation">If you wanna go back to the navegation panel, please click here!</nav>
+        <section class="content">
+            <header class="header">THIS IS A CONSOLE ORIENTED EXERCISE</header>
+            <article>Please don't forget to open your console with f12 or right click > inspect > console to see the code!</article>
+            <footer class="footer">Thank you for passing by</footer>
+        </section>
+        <footer class="footer">Martin Fares bid you farewell</footer>
+
+    </body>
+</html>
