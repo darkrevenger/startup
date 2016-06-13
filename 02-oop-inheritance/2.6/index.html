@@ -17,6 +17,7 @@
         <script type="text/javascript" src="js/Movie.js"></script>
         <script type="text/javascript" src="js/Logger.js"></script>
         <script type="text/javascript" src="js/socialObject.js"></script>
+        <script type="text/javascript" src="js/Actor.js"></script>
 
     </head>
     <body>
@@ -26,11 +27,24 @@
             lordOfTheRings.on('play', logger.log("Hola soy el log del evento play de la pelicula LOTR: TFOTR"));
             lordOfTheRings.play();
         </script>
-        <script>
+        <script type="text/javascript">
             Object.assign(lordOfTheRings, social);
             lordOfTheRings.share('Martin Fares');
             lordOfTheRings.like('Martin Fares'); 
         </script>   
+        <script type="text/javascript">
+
+        let aragorn = new Actor('Arnold Schwarzenegger', 50);
+        let otherCast = [
+         new Actor('Paul Winfield', 50),
+         new Actor('Michael Biehn', 50),
+         new Actor('Linda Hamilton', 50)
+        ];
+
+        lordOfTheRings.addCast(aragorn);
+        lordOfTheRings.addCast(otherCast); //Movie must contain an array of 4 actors
+
+        </script>
         <header class="header">Hello and welcome</header>
         <nav class="navigation">If you wanna go back to the navegation panel, please click here!</nav>
         <section class="content">

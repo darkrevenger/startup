@@ -7,6 +7,7 @@
   this.title = title;
   this.year = year;
   this.duration = duration;
+  this.cast = [];
 
   this.play = function (){
 
@@ -40,7 +41,20 @@
     } 
 
   };
-  
+  this.addCast = function(cast){
+
+
+    if(cast.constructor === Array){
+      cast.push.apply(this.cast, cast);
+    } else if (cast.constructor === Actor) {
+      // cast is an actor actually
+      this.cast.push(cast);
+    } else {
+      console.error('addCast only allows an Actor Object or an Array of Actor Objects');
+    }
+
+  };
+
   console.log('movie called ' + this.title + ' has been created');
 };
 

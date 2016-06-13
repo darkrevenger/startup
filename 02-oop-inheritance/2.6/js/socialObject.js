@@ -12,6 +12,6 @@ var social = {
 
     console.log(`${friendName} share ${this.title}`);
 
-  } //tendria que terminar con ;?
+  }
 
 };
