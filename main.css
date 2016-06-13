@@ -1,0 +1,24 @@
+body{
+
+  background-image: url("img/nav.png");
+  color: white;
+
+}
+
+a:link {
+    text-decoration: underline;
+    color: white;
+}
+
+a:visited {
+    text-decoration: underline;
+    color: white;
+}
+
+header, footer{
+  font-size: 20px;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
