@@ -1,0 +1,1 @@
+myApp.controller('detailViewController', ['$scope', '$localStorage', function($scope, $localStorage) { };
