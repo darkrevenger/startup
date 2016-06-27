@@ -1,0 +1,159 @@
+.body {
+  font-family: sans-serif;
+  text-align: center;
+  display: block;
+  background: url('../fondo.jpg');
+  background-size: cover;
+}
+
+.header {
+  height: auto;
+  display: block;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.link {
+  color: #f00;
+}
+.title 
+{
+  font-size: 28px;
+  line-height: 40px;
+  padding: 0px;
+  color: white;
+  text-shadow: 1px 1px 3px #000000;
+}
+
+.library-title {
+
+ display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  position: relative;
+  padding: 20px;
+  border: none;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 5px rgba(0,0,0,1) ;
+
+}
+
+.list { 
+  margin-top:15px;
+  padding: 15px 15px 15px 15px;
+}
+
+li {
+  list-style-type: none;
+  display:inline-block;
+}
+
+
+.constructor-form {
+    max-width: 430px;
+    background: transparent;
+    padding: 15px;
+    margin: 50px auto;
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #305A72;
+}
+.text-field {
+  font-weight: 900;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 300px;
+  height: 42px;
+  cursor: pointer;
+  padding: 0 20px;
+  overflow: auto;
+  border: none;
+  -webkit-border-radius: 21px;
+  border-radius: 21px;
+  font-size: 18px;
+  font-family: sans-serif;
+  color: white;
+  background: rgba(40,40,40,0.4);
+  -webkit-box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.5) inset;
+  box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.5) inset;
+  -webkit-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -moz-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -o-transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  transition: all 502ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+}
+
+.text-field:hover {
+  color: rgba(255,255,255,1);
+  background: rgba(0,0,0,0.4);
+  cursor: grab;
+  -webkit-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -moz-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -o-transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  transition: all 500ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+}
+
+.text-field:focus {
+  width: 350px;
+  cursor: default;
+  padding: -13px 20px 0;
+  color: rgba(255,255,255,1);
+  -webkit-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -moz-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  -o-transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  transition: all 601ms cubic-bezier(0.68, -0.75, 0.265, 1.75);
+}
+
+.constructor-box {
+  margin: 5px 5px 5px 5px;
+  background-size: cover;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #2F3F73, #AA3838); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #2F3F73, #AA3838); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #2F3F73, #AA3838); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #2F3F73, #AA3838); /* Standard syntax (must be last) */
+  border: 6px solid #305A72;
+  height: 550px;
+  width: 220px;
+  vertical-align: top;
+}
+.content-section {
+
+  box-sizing: border-box;
+ 
+}
+
+.boton {
+  margin-top:15px;
+}
+
+.footer {
+  color: white;
+  margin-top:80px;
+  text-shadow: 1px 1px 3px #000000;
+  font-size: 30px;
+}
+
+.btn-primary {
+  display: block;
+  background: -moz-linear-gradient(top,  #33a6cc 50%, #0099cc 50%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#33a6cc), color-stop(50%,#0099cc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* IE10+ */
+  background: linear-gradient(to bottom,  #33a6cc 50%,#0099cc 50%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33a6cc', endColorstr='#0099cc',GradientType=0 ); /* IE6-9 */
+}
+
+.movie-name,
+.movie-year,
+.movie-duration,
+.movie-price {
+
+  font-weight: bold;
+  font-family: sans-serif;
+  color: white;
+
+}
