@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Amazing movies!</title>
+
+        <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+        <link href="css/normalize.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+        <script src="js/angular-route.min.js"></script>
+
+    </head>
+    <body class="body" ng-app="myApp">
+
+      <nav class="navigation"> 
+      <a href="../../index.html" class="btn btn-primary">Hey, you wanna see more? Lets travel BACK IN TIME!</a>
+      </nav>
+
+    <div ng-controller="mainController">
+
+        <header class="header">
+            <h1 class="title">{{ title }}</h1>
+            <h2><a class="link" href="#/add-movie">Add a movie now!</a></h2>
+        </header>
+
+        <div class="container-fluid">
+        <div class="row">
+            <div ng-view class="col-md-12">
+
+                <!-- Here we show the views -->
+
+            </div>
+    
+      
+        <section class="list col-md-12">
+        <div class="content-section">
+        <li ng-repeat="movie in movies" class="constructor-box">
+            <p class="movie-name">{{ movie.name }}</p>
+            <p class="movie-year">{{ movie.year | date}}</p>
+            <div class="thumbnail">
+              <img class="img-circle" ng-src="{{movie.cover}}" alt="This is the movie picture!" >
+            </div>
+            <p class="movie-duration">{{ movie.duration }} hours</p>
+            <p class="movie-price"> {{ movie.price | currency}}</p>
+
+            <a href="#"><button class="btn btn-info btn-small" ng-click="selectMovie($index)"/>Select
+            </button></a>
+            <a class="btn btn-warning btn-small" href="#/edit-movie/{{$index}}">Edit</a>
+            <button class="btn btn-danger btn-small" ng-click="deleteMovie($index)">
+            <i class="icon-trash icon-white"></i> Delete
+            </button>
+          
+        </li>
+        </div>    
+        </section>
+
+        <footer class="footer">Thanks for passing by, see you again soon!</footer>
+
+        </div>
+        </div>
+    </div>
+            <!-- module -->
+     <script src="js/myApp.js"></script>
+            <!-- Controller -->
+     <script src="js/controllers/mainController.js"></script>
+     <script src="js/controllers/addMovieController.js"></script>
+     <script src="js/controllers/editMovieController.js"></script>
+    </body>
+</html>
