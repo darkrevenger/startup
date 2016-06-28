@@ -119,6 +119,7 @@ li {
   width: 220px;
   vertical-align: top;
 }
+
 .content-section {
 
   box-sizing: border-box;
@@ -155,5 +156,34 @@ li {
   font-weight: bold;
   font-family: sans-serif;
   color: white;
+
+}
+
+.detail-constructor-box {
+  background-size: cover;
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left top, #2F3F73, #AA3838); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom right, #2F3F73, #AA3838); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom right, #2F3F73, #AA3838); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #2F3F73, #AA3838); /* Standard syntax (must be last) */
+  border: 6px solid #305A72;
+  width: 80%;
+  margin: auto;
+  position: relative;
+}
+
+.button-home {
+  margin-bottom: 10px;
+}
+
+.detail-text {
+
+  color: red;
+
+}
+.detail-image {
+
+  height: 65%;
+  width: 85%; 
 
 }

@@ -1,9 +1,9 @@
 myApp.controller('deleteMovie', ['$scope', '$localStorage', function($scope, $localStorage) { 
 
   // Delete a movie
-
-  $scope.deleteMovie = function (index) {
-    $localStorage.movies.splice(index, 1);
+  
+  $scope.deleteMovie = function (position) {
+    $localStorage.movies.splice(position, 1);
   };
 
 }]);

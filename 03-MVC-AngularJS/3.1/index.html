@@ -52,13 +52,12 @@
             <div class="thumbnail">
               <img class="img-circle" ng-src="{{movie.cover}}" alt="This is the movie picture!" >
             </div>
-            <p class="movie-duration">{{ movie.duration }} hours</p>
+            <p class="movie-duration">this movie is {{ movie.duration }} minutes long</p>
             <p class="movie-price"> {{ movie.price | currency}}</p>
 
-            <a href="#"><button class="btn btn-info btn-small" ng-click="selectMovie($index)"/>Select
-            </button></a>
+            <a class="btn btn-info btn-small" href="#/detail-movie/{{$index}}">Details</a>
             <a class="btn btn-warning btn-small" href="#/edit-movie/{{$index}}">Edit</a>
-            <button class="btn btn-danger btn-small" ng-click="deleteMovie($index)">
+            <button class="btn btn-danger btn-small" ng-controller="deleteMovie" ng-click="deleteMovie($index)">
             <i class="icon-trash icon-white"></i> Delete
             </button>
           
@@ -77,5 +76,7 @@
      <script src="js/controllers/mainController.js"></script>
      <script src="js/controllers/addMovieController.js"></script>
      <script src="js/controllers/editMovieController.js"></script>
+     <script src="js/controllers/detailViewController.js"></script>
+     <script src="js/controllers/deleteMovieController.js"></script>
     </body>
 </html>

@@ -11,6 +11,10 @@ var myApp = angular.module('myApp', ['ngStorage', 'ngRoute'])
         templateUrl: 'views/edit-movie.html',
         controller: 'editMovie'
       })
+      .when('/detail-movie/:position', {
+        templateUrl: 'views/detail-movie.html',
+        controller: 'detailMovie'
+      })
   }
 ]);
 
