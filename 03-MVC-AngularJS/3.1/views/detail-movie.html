@@ -1,0 +1,8 @@
+<section ng-controller="detailMovie" class="detail-constructor-box" class="list col-md-12">
+    <!-- Add a background -->
+    <h1 class="detail-text">{{ name }}</h1>
+    <img class="img-rounded detail-image" ng-src="{{cover}}" alt="This is the movie picture!" >
+  <h2 class="detail-text">{{ year | date}}</h2>
+  <h3 class="detail-text">{{ duration }} hours</h3>
+  <h4 class="detail-text">{{ price | currency}}</h4>
+</section>
