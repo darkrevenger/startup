@@ -35,6 +35,14 @@ var moviesArray =  [
     }
 ];
 
+var MovieRemover = React.createClass({
+
+deleteMovie = function (position) {
+  movies.splice(position, 1);
+
+
+});
+
 // Renders the MovieCreator form, saves the movie and sends the info to MovieLibrary
 
 var MovieCreator = React.createClass({
@@ -112,6 +120,10 @@ render: function() {
 
 var MovieLibrary = React.createClass({
       handleMovieSubmit: function (movie) {
+        moviesArray.push(movie);
+        this.setState({movies: moviesArray});
+    },
+      handleMovieRemove: function (movie) {
         moviesArray.push(movie);
         this.setState({movies: moviesArray});
     },
