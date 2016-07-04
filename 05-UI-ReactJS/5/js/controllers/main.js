@@ -4,7 +4,7 @@ var moviesArray =  [
     { 
       name: 'The Lord of the Rings: The Fellowship of the Ring', 
       price: 200, 
-      year: ('2001 09 19'), //no usar new buscar otra manera de hacerlo 
+      year: ('2001 09 19'),
       duration: 180,
       cover: 'http://www.coverwhiz.com/content/The-Lord-Of-The-Rings-The-Fellowship-Of-The-Ring.jpg',
       likes: 0
@@ -35,7 +35,7 @@ var moviesArray =  [
     }
 ];
 
-// Creates a movie and adds it to the array
+// Renders the MovieCreator form, saves the movie and sends the info to MovieLibrary
 
 var MovieCreator = React.createClass({
   getInitialState: function() {
@@ -64,11 +64,8 @@ var MovieCreator = React.createClass({
     var cover = this.state.cover;
     var price = this.state.price; 
     var movie = {name: name, year: year, duration: duration, cover: cover, price: price};
-        console.log(movie);
-    moviesArray.push(movie);
-    this.setState({movies: moviesArray});
     console.log(movie);
-    console.log(moviesArray);
+    this.props.onMovieSubmit(movie);
   },
   render: function() {
     return (
@@ -91,9 +88,9 @@ var MovieCreator = React.createClass({
 
 var MoviesContainer = React.createClass({
 render: function() {
-  var showMovies = this.props.movies.map(function(movie) {
+  var showMovies = this.props.movies.map(function(movie, i) {
     return (
-      <li key={movie.name}>
+      <li key={i}>
       <p className='movie-name'>{ movie.name }</p>
       <p className='movie-year'>{ movie.year }</p>
       <img src={movie.cover} className='img-circle' alt='This is the movie picture!'></img>
@@ -111,16 +108,20 @@ render: function() {
 }
 });
 
-// Renders the main class
+// Renders the main class and add the new movie to the array so it can be rendered by the MovieContainer
 
 var MovieLibrary = React.createClass({
+      handleMovieSubmit: function (movie) {
+        moviesArray.push(movie);
+        this.setState({movies: moviesArray});
+    },
     render: function() {
         return (
           <div>
             <MoviesContainer movies={this.props.movies} />
 
-            <MovieCreator movies={this.props.movies} />
-
+            <MovieCreator onMovieSubmit={this.handleMovieSubmit} />
+            <MovieRemover  />
           </div>
           );
     }
