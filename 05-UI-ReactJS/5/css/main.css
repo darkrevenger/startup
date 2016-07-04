@@ -1,0 +1,43 @@
+.body {
+  font-family: sans-serif;
+  text-align: center;
+  display: block;
+  background: url('../fondo.jpg');
+  background-size: cover;
+}
+
+.header {
+  height: auto;
+  display: block;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.link {
+  color: #f00;
+}
+.title 
+{
+  font-size: 28px;
+  line-height: 40px;
+  padding: 0px;
+  color: white;
+  text-shadow: 1px 1px 3px #000000;
+}
+
+.btn-primary {
+  display: block;
+  background: -moz-linear-gradient(top,  #33a6cc 50%, #0099cc 50%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#33a6cc), color-stop(50%,#0099cc)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #33a6cc 50%,#0099cc 50%); /* IE10+ */
+  background: linear-gradient(to bottom,  #33a6cc 50%,#0099cc 50%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33a6cc', endColorstr='#0099cc',GradientType=0 ); /* IE6-9 */
+}
+
+.footer {
+  color: white;
+  margin-top:80px;
+  text-shadow: 1px 1px 3px #000000;
+  font-size: 30px;
+}
