@@ -41,6 +41,21 @@ var MovieCreator = React.createClass({
   getInitialState: function() {
   return {name: '', year: '', duration: '', cover: '', price: ''};
   },
+  handleName: function(event) {
+    this.setState({name: event.target.value});
+  },
+  handleYear: function(event) {
+    this.setState({year: event.target.value});
+  },
+  handleDuration: function(event) {
+    this.setState({duration: event.target.value});
+  },
+  handleCover: function(event) {
+    this.setState({cover: event.target.value});
+  },
+  handlePrice: function(event) {
+    this.setState({price: event.target.value});
+  },
   handleSaveMovie: function () {
     console.log(movie);
     var name = this.state.name;
@@ -53,19 +68,17 @@ var MovieCreator = React.createClass({
     moviesArray.push(movie);
     this.setState({movies: moviesArray});
     console.log(movie);
-  },
-    changeValue(event) {
-      this.setValue(event.currentTarget.value); 
+    console.log(moviesArray);
   },
   render: function() {
     return (
       <Formsy.Form onSubmit={this.handleSaveMovie}>
       <h1 className='library-title'>This is the movie library, add them at will</h1>
-      <input type='text' required value={this.state.name} onChange={this.changeValue} placeholder='Enter Title of the movie' className='text-field' />
-      <input type='text' required value={this.state.year} onChange={this.changeValue} placeholder='Enter the year' className='text-field' />
-      <input type='number' step='0.01' min='0.5' max='10000' required value={this.state.duration} onChange={this.changeValue} placeholder='Enter duration in minutes' className='text-field' />
-      <input type='text' required value={this.state.cover} onChange={this.changeValue} placeholder='Enter the path of the pic' className='text-field' />
-      <input type='number' required value={this.state.price} onChange={this.changeValue} placeholder='Enter the price' className='text-field' />
+      <input type='text' required value={this.state.name} onChange={this.handleName} placeholder='Enter Title of the movie' className='text-field' />
+      <input type='text' required value={this.state.year} onChange={this.handleYear} placeholder='Enter the year' className='text-field' />
+      <input type='number' step='0.01' min='0.5' max='10000' required value={this.state.duration} onChange={this.handleDuration} placeholder='Enter duration in minutes' className='text-field' />
+      <input type='text' required value={this.state.cover} onChange={this.handleCover} placeholder='Enter the path of the pic' className='text-field' />
+      <input type='number' required value={this.state.price} onChange={this.handlePrice} placeholder='Enter the price' className='text-field' />
       <button className='boton btn btn-success' type='submit'>Add a movie!</button>
       <button className='boton btn btn-info' type='reset'>Reset</button>
       </Formsy.Form> 
