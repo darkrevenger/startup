@@ -35,13 +35,6 @@ var moviesArray =  [
     }
 ];
 
-var MovieRemover = React.createClass({
-
-deleteMovie = function (position) {
-  movies.splice(position, 1);
-
-
-});
 
 // Renders the MovieCreator form, saves the movie and sends the info to MovieLibrary
 
@@ -95,48 +88,52 @@ var MovieCreator = React.createClass({
 // Renders the MoviesContainer with all of the movies inside.
 
 var MoviesContainer = React.createClass({
-render: function() {
-  var showMovies = this.props.movies.map(function(movie, i) {
-    return (
-      <li key={i}>
-      <p className='movie-name'>{ movie.name }</p>
-      <p className='movie-year'>{ movie.year }</p>
-      <img src={movie.cover} className='img-circle' alt='This is the movie picture!'></img>
-      <p className='movie-duration'>this movie is { movie.duration } minutes long</p>
-      <p className='movie-price'> { movie.price }</p>
-      </li>
-      );
-    });
+  handleClick : function (i) {
+    this.props.onMovieDelete(i);
+  },
 
-  return (
-    <ul>
-    {showMovies}
-    </ul>
-  );
-}
+  render: function() {
+    var showMovies = this.props.movies.map((movie, i) => {
+      var boundClick = this.handleClick.bind(this, i);
+      return (
+        <li key={i}>
+        <p className='movie-name'>{ movie.name }</p>
+        <p className='movie-year'>{ movie.year }</p>
+        <img src={movie.cover} className='img-circle' alt='This is the movie picture!'></img>
+        <p className='movie-duration'>this movie is { movie.duration } minutes long</p>
+        <p className='movie-price'> { movie.price }</p>
+        <button className='btn btn-danger' onClick={boundClick}>Delete this movie</button>
+        </li>
+        );
+      });
+
+    return (
+      <ul>
+      {showMovies}
+      </ul>
+    );
+  }
 });
 
 // Renders the main class and add the new movie to the array so it can be rendered by the MovieContainer
 
 var MovieLibrary = React.createClass({
-      handleMovieSubmit: function (movie) {
-        moviesArray.push(movie);
-        this.setState({movies: moviesArray});
-    },
-      handleMovieRemove: function (movie) {
-        moviesArray.push(movie);
-        this.setState({movies: moviesArray});
-    },
-    render: function() {
-        return (
-          <div>
-            <MoviesContainer movies={this.props.movies} />
-
-            <MovieCreator onMovieSubmit={this.handleMovieSubmit} />
-            <MovieRemover  />
-          </div>
-          );
-    }
+  handleMovieSubmit: function (movie) {
+    moviesArray.push(movie);
+    this.setState({movies: moviesArray});
+  },  
+  handleMovieDelete: function (i) {
+    this.props.movies.splice(i, 1);
+    this.setState({movies: moviesArray});
+  },
+  render: function() {
+    return (
+      <div>
+        <MovieCreator onMovieSubmit={this.handleMovieSubmit} />
+        <MoviesContainer movies={this.props.movies} onMovieDelete={this.handleMovieDelete} />
+      </div>
+    );
+  }
 });
 
 // Rendering MovieLibrary, wich renders the rest of the  classes.

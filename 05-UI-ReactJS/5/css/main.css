@@ -41,3 +41,11 @@
   text-shadow: 1px 1px 3px #000000;
   font-size: 30px;
 }
+.img-circle {
+
+  max-height: 100px;
+
+}
+.red-background {
+  background: #aff;
+}
