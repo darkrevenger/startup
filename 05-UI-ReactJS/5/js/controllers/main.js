@@ -1,4 +1,4 @@
-// A array of movies to show by default
+// A array of movies to show by defaultx
 
 var moviesArray =  [
     { 
@@ -67,28 +67,9 @@ var MovieCreator = React.createClass({
     console.log(movie);
     this.props.onMovieSubmit(movie);
   },
- /* handleEditMovie: function (i) {
-    console.log(movie);
-    var name = this.state.name;
-    var year = this.state.year;
-    var duration = this.state.duration;
-    var cover = this.state.cover;
-    var price = this.state.price; 
-    var i = i;
-    var movie = {name: name, year: year, duration: duration, cover: cover, price: price};
-    console.log(movie);
-    this.props.onEditSubmit(i, movie);
-  },
-    handleIndexSaver: function (i) {
-      var i = i;
-      this.state.name = moviesArray[i].name;
-      this.state.year = moviesArray[i].year;
-      this.state.duration = moviesArray[i].duration;
-      this.state.cover = moviesArray[i].cover;
-      this.state.price = moviesArray[i].price; 
-  }, */
   render: function() {
     return (
+      <div>
       <Formsy.Form >
       <h1 className='library-title'>This is the movie library, add them at will</h1>
       <input type='text' required value={this.state.name} onChange={this.handleName} placeholder='Enter Title of the movie' className='text-field' />
@@ -97,15 +78,67 @@ var MovieCreator = React.createClass({
       <input type='text' required value={this.state.cover} onChange={this.handleCover} placeholder='Enter the path of the pic' className='text-field' />
       <input type='number' required value={this.state.price} onChange={this.handlePrice} placeholder='Enter the price' className='text-field' />
       <button className='boton btn btn-success' type='submit' onClick={this.handleSaveMovie}>Add a movie!</button>
-      <button className='boton btn btn-success' type='submit' onClick={this.handleEditMovie}>Edit the selected movie!</button>
       <button className='boton btn btn-info' type='reset'>Reset</button>
-      </Formsy.Form> 
-      /*<div>
-      <MoviesLibrary onFormFill={this.handleIndexSaver} />     
-      </div>*/
+      </Formsy.Form>
+      </div>
     );
   }
 
+});
+
+var MovieEditor = React.createClass({
+  getInitialState: function() {
+  return {name: '', year: '', duration: '', cover: '', price: '', position: ''};
+  },
+  handleName: function(event) {
+    this.setState({name: event.target.value});
+  },
+  handleYear: function(event) {
+    this.setState({year: event.target.value});
+  },
+  handleDuration: function(event) {
+    this.setState({duration: event.target.value});
+  },
+  handleCover: function(event) {
+    this.setState({cover: event.target.value});
+  },
+  handlePrice: function(event) {
+    this.setState({price: event.target.value});
+  },
+  handlePosition: function (event) {
+    this.setState({position: event.target.value});
+  },
+  handleSaveMovie: function () {
+    console.log(movie);
+    var name = this.state.name;
+    var year = this.state.year;
+    var duration = this.state.duration;
+    var cover = this.state.cover;
+    var price = this.state.price;
+    var position = this.state.position;
+    var movie = {name: name, year: year, duration: duration, cover: cover, price: price};
+    this.props.onMovieSubmit(position, movie);
+  },
+  render: function(){
+    if (this.props.selectedMovie.name != '') {
+    return (
+      <div>
+        <Formsy.Form >
+          <h1 className='library-title'></h1>
+          <input type='text' required value={this.props.selectedMovie.name} onChange={this.handleName} placeholder='Enter Title of the movie' className='text-field' />
+          <input type='text' required value={this.props.selectedMovie.year} onChange={this.handleYear} placeholder='Enter the year' className='text-field' />
+          <input type='number' step='0.01' min='0.5' max='10000' required value={this.props.selectedMovie.duration} onChange={this.handleDuration} placeholder='Enter duration in minutes' className='text-field' />
+          <input type='text' required value={this.props.selectedMovie.cover} onChange={this.handleCover} placeholder='Enter the path of the pic' className='text-field' />
+          <input type='number' required value={this.props.selectedMovie.price}  onChange={this.handlePrice} placeholder='Enter the price' className='text-field' />
+          <input type="hidden" value={this.props.selectedMovie.position} onChange={this.handlePosition} />
+          <button className='boton btn btn-success' type='submit' onClick={this.handleEditMovie}>Edit the selected movie!</button>
+        </Formsy.Form>
+      </div>
+      )
+  } else {
+    return (<div></div>)
+  }
+  }
 });
 
 // Renders the MoviesContainer with all of the movies inside.
@@ -146,6 +179,16 @@ var MoviesContainer = React.createClass({
 // Renders the main class and add the new movie to the array so it can be rendered by the MovieContainer
 
 var MovieLibrary = React.createClass({
+  getInitialState: function () {
+    return {movie : {
+      name: '',
+      price: '',
+      year: '',
+      duration: '',
+      cover: '',
+      likes: ''
+      }}
+  },
   handleMovieSubmit: function (movie) {
     moviesArray.push(movie);
     this.setState({movies: moviesArray});
@@ -154,27 +197,31 @@ var MovieLibrary = React.createClass({
     this.props.movies.splice(i, 1);
     this.setState({movies: moviesArray});
   },
-  /*handleMovieEdit: function (i, movie) {    
-    moviesArray[i].name = this.state.movie.name; 
-    moviesArray[i].year = this.state.movie.year; 
-    moviesArray[i].duration = this.state.movie.duration; 
-    moviesArray[i].cover = this.state.movie.cover; 
-    moviesArray[i].price = this.state.movie.price;
+  handleMovieEdit: function (i, movie) {    
+    moviesArray[i].name = movie.name; 
+    moviesArray[i].year = movie.year; 
+    moviesArray[i].duration = movie.duration; 
+    moviesArray[i].cover = movie.cover; 
+    moviesArray[i].price = movie.price;
     this.setState({movies: moviesArray});
   },
-  handleFormFillWithMovie: function (i) {    
-    this.state.name = moviesArray[i].name;
-    this.state.year = moviesArray[i].year;
-    this.state.duration =  moviesArray[i].duration;
-    this.state.cover = moviesArray[i].cover;
-    this.state.price = moviesArray[i].price;
-    this.props.onFormFill();
-  },*/
+  handleFormFillWithMovie: function (i) {
+  var movie = {
+    name : moviesArray[i].name,
+    year : moviesArray[i].year,
+    duration :  moviesArray[i].duration,
+    cover : moviesArray[i].cover,
+    price : moviesArray[i].price,
+    position: i
+  };
+  this.setState({movie: movie});
+  },
   render: function() {
     return (
       <div>
-      <MovieCreator onMovieSubmit={this.handleMovieSubmit}  /*onEditSubmit={this.handleMovieEdit}*/ />
-      <MoviesContainer movies={this.props.movies} onMovieDelete={this.handleMovieDelete} /*onMovieModify={this.handleFormFillWithMovie}*/ />
+      <MovieCreator onMovieSubmit={this.handleMovieSubmit} onEditSubmit={this.handleMovieEdit} />
+      <MovieEditor selectedMovie={this.state.movie} onMovieSubmit={this.handleMovieEdit} />
+      <MoviesContainer movies={this.props.movies} onMovieDelete={this.handleMovieDelete} onMovieModify={this.handleFormFillWithMovie} />
       </div>
     );
   }
@@ -182,5 +229,5 @@ var MovieLibrary = React.createClass({
 
 // Rendering MovieLibrary, wich renders the rest of the  classes.
 
-ReactDOM.render(<MovieLibrary movies={ moviesArray }  />, 
+ReactDOM.render(<MovieLibrary movies={ moviesArray } />, 
 document.getElementById('container'));
